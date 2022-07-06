@@ -15,12 +15,13 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 	}
 }
 ?>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <div class="card card-outline card-info">
 	<div class="card-header">
 		<h3 class="card-title"><?php echo isset($_GET['id']) ? "Update ": "Create New " ?>Question Response</h3>
 	</div>
 	<div class="card-body">
-		<form action="" id="response-form">
+		<form action="" id="response-form" novalidate>
 			<input type="hidden" name ="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : '' ?>">
 			<?php if(!isset($id)): ?>
 			<div class="form-group">
@@ -52,7 +53,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 					</span>
 				<script>
 					$(document).ready(function(){
-						$('#response_message').focus();
+						$('#response_message1').focus();
+						
 					})
 				</script>
 				<?php 
@@ -64,7 +66,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 			</div>
 			<div class="form-group">
 				<label for="response_message" class="control-label">Response Message</label>
-				<textarea name="response_message" id="response_message" cols="30" rows="3" class="form-control" style="resize: none" required><?php echo isset($response_message) ? $response_message : ''; ?></textarea>
+				<textarea name="response_message" id="response_message1" cols="30" rows="3" class="form-control" style="resize: none" required><?php echo isset($response_message) ? $response_message : ''; ?></textarea>
 			</div>
 		</form>
 	</div>
@@ -75,6 +77,25 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 </div>
 <script>
 	$(document).ready(function(){
+		tinymce.init({
+			selector: 'textarea#response_message1',
+			plugins: 'link',
+			plugins: 'image code',
+  			toolbar: 'undo redo | image code, link',
+
+  /* without images_upload_url set, Upload tab won't show up*/
+  images_upload_url: 'postAcceptor.php',
+
+  /* we override default upload handler to simulate successful upload*/
+  images_upload_handler: function (blobInfo, success, failure) {
+    setTimeout(function () {
+      /* no matter what you upload, we will turn it into TinyMCE logo :)*/
+      success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
+    }, 2000);
+  },
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+});
+
 		function add_question(){
 			var question = $('#question').val()
 			if(question == '' || question == null)
@@ -85,7 +106,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 			span.appendTo('#question-holder');
 			 $('#question').val('')
 			 $('#question').removeClass("border-danger")
-			 $('.err-msg').remove();
+			 $('.err-msg').remove(); 
 			 $('#question').focus();
 		}
 		$('#add_question').click(function(){

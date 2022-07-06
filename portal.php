@@ -23,11 +23,13 @@
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" role="menu">
-                    <a class="dropdown-item" href="<?php echo base_url.'php-chat-app-main/?index.php' ?>"><span class="fa fa-user"></span>Guidance Counselor</a>
-                     <a class="dropdown-item" href="<?php echo base_url.'admin/?page=user' ?>"><span class="fa fa-user"></span>Campus Nurse</a>
-                      <a class="dropdown-item" href="<?php echo base_url.'admin/?page=user' ?>"><span class="fa fa-user"></span>Head, SAS</a>
+                    <a class="dropdown-item" href="<?php echo base_url.'php-chat-app-main/?index.php' ?>"><span class="fa fa-user"></span>Guidance Counselor/<br>&nbsp;&nbsp;&nbsp;&nbsp;Scholarship Coordinator</a>
+                     <a class="dropdown-item" href="<?php echo base_url.'chat_clinic_db/?index.php' ?>"><span class="fa fa-user"></span>Campus Nurse</a>
+                      <a class="dropdown-item" href="<?php echo base_url.'chat_sas_db/?index.php' ?>"><span class="fa fa-user"></span>Head, SAS</a>
+                      <a class="dropdown-item" href="<?php echo base_url.'chat_library_db/?index.php' ?>"><span class="fa fa-user"></span>Librarian</a>
+                      <a class="dropdown-item" href="<?php echo base_url.'chat_sports_db/?index.php' ?>"><span class="fa fa-user"></span>Sports & Cultural Program</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo base_url.'/classes/Login.php?f=logout' ?>"><span class="fas fa-sign-out-alt"></span> Logout</a>
+                    <a class="dropdown-item" href="<?php echo base_url.'/classes/Login.php?f=logout' ?>"><span class="fas fa-sign-out-alt"></span> ADMIN</a>
                   </div>
               </div>
           </li>
@@ -43,6 +45,7 @@
                   <div class="direct-chat-msg mr-4">
                     <img class="direct-chat-img border-1 border-primary" src="<?php echo validate_image($_settings->info('bot_avatar')) ?>" alt="message user image">
                     <!-- /.direct-chat-img -->
+ 
                     <div class="direct-chat-text">
                       <?php echo $_settings->info('intro') ?>
                     </div>
@@ -60,7 +63,7 @@
               <div class="card-footer">
                 <form id="send_chat" method="post">
                   <div class="input-group" class="dropdown">
-                    <input type="text" name="message" placeholder="Type Message ..." onkeyup="javascript:load_data(this.value)" class="form-control form-control-lg" required=""></input>
+                    <input type="text" id="msgbox" name="message" placeholder="Type Message ..." onkeyup="javascript:load_data(this.value)" class="form-control form-control-lg" required=""/>
                     <span class="input-group-append" id="search_result" style="position: absolute;top: 47px;"></span>
                     <span class="input-group-append">
                       <button type="submit" class="btn btn-primary">Send</button>
@@ -85,11 +88,15 @@
 	<div class="direct-chat-msg mr-4">
         <img class="direct-chat-img border-1 border-primary" src="<?php echo validate_image($_settings->info('bot_avatar')) ?>" alt="message user image">
         <!-- /.direct-chat-img -->
-        <div class="direct-chat-text"></div>
+        <div class="direct-chat-text last_resp" onclick="last_resp1(this)"></div>
         <!-- /.direct-chat-text -->
   </div>
 </div>
 <script type="text/javascript">
+function last_resp1(event)
+{
+	$('[name="message"]').val($(event).html());
+}
 function get_text(event)
 {
 	var string = event.textContent;
@@ -146,6 +153,7 @@ function load_data(query)
 }
 
 	$(document).ready(function(){
+		
 		$('[name="message"]').keypress(function(e){
 			console.log()
 			if(e.which === 13 && e.originalEvent.shiftKey == false){
