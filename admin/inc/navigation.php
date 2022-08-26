@@ -59,49 +59,7 @@
                         </p>
                       </a>
                     </li>
-                    <div class="dropdown-divider"></div>
-                       <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>php-chat-app-main/?index.php" class="nav-link nav-guidance">
-                        <i class="nav-icon fa fa-user"></i>
-                        <p>
-                          Guidance Counselor/<br>Scholarship Coordinator
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>chat_clinic_db/?index.php" class="nav-link nav-nurse">
-                        <i class="nav-icon fa fa-user"></i>
-                        <p>
-                          Campus Nurse
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>chat_sas_db/?index.php" class="nav-link nav-sas">
-                        <i class="nav-icon fa fa-user"></i>
-                        <p>
-                          Head, SAS
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>chat_library_db/?index.php" class="nav-link nav-librarian">
-                        <i class="nav-icon fa fa-user"></i>
-                        <p>
-                          Librarian
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>chat_sports_db/?index.php" class="nav-link nav-sports">
-                        <i class="nav-icon fa fa-user"></i>
-                        <p>
-                          Sports and Cultural Program
-                        </p>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+                  
                 <!-- /.sidebar-menu -->
               </div>
             </div>

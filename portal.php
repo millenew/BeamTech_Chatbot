@@ -23,11 +23,11 @@
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" role="menu">
-                    <a class="dropdown-item" href="<?php echo base_url.'php-chat-app-main/?index.php' ?>"><span class="fa fa-user"></span>Guidance Counselor/<br>&nbsp;&nbsp;&nbsp;&nbsp;Scholarship Coordinator</a>
-                     <a class="dropdown-item" href="<?php echo base_url.'chat_clinic_db/?index.php' ?>"><span class="fa fa-user"></span>Campus Nurse</a>
-                      <a class="dropdown-item" href="<?php echo base_url.'chat_sas_db/?index.php' ?>"><span class="fa fa-user"></span>Head, SAS</a>
-                      <a class="dropdown-item" href="<?php echo base_url.'chat_library_db/?index.php' ?>"><span class="fa fa-user"></span>Librarian</a>
-                      <a class="dropdown-item" href="<?php echo base_url.'chat_sports_db/?index.php' ?>"><span class="fa fa-user"></span>Sports & Cultural Program</a>
+                    <a class="dropdown-item" href="https://www.facebook.com/messages/t/112932567299335"><span class="fa fa-user"></span>Guidance Counselor/<br>&nbsp;&nbsp;&nbsp;&nbsp;Scholarship Coordinator</a>
+                     <a class="dropdown-item" href="<?php echo base_url.'' ?>"><span class="fa fa-user"></span>Campus Nurse</a>
+                      <a class="dropdown-item" href="<?php echo base_url.'' ?>"><span class="fa fa-user"></span>Head, SAS</a>
+                      <a class="dropdown-item" href="https://www.facebook.com/messages/t/104414534585818"><span class="fa fa-user"></span>Librarian</a>
+                      <a class="dropdown-item" href="https://www.facebook.com/messages/t/100722568720017"><span class="fa fa-user"></span>Sports & Cultural Program</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="<?php echo base_url.'/classes/Login.php?f=logout' ?>"><span class="fas fa-sign-out-alt"></span> ADMIN</a>
                   </div>
